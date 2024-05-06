@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1>Emargement</h1>
+
+    <table class="table basic-table">
+        <thead>
+            <tr>
+                <th>Session</th>
+                <th>Date Session</th>
+                <th>Presence</th>
+                <th>Alternative</th>
+                <th>Heure Arrive</th>
+                <th>Heure Départ</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for emarger in emargements %}
+        <tr>
+            <td>{{ emarger.session.intitule }}</td>
+            <td>{{ emarger.session.dateSession|date('d/m/Y') }}</td>
+            <td>
+                {% if emarger.presence is not null %}
+                    {{ (emarger.presence == 1) ? 'Présent' : 'Absent' }}
+                {% endif %}
+            </td>
+            <td>
+                {{ emarger.alternative }}
+            </td>
+            <td>
+                {{ (emarger.heureArrive is not null) ? emarger.heureArrive|date('H:i') : '' }}
+            </td>
+            <td>
+                {{ (emarger.heureDepart is not null) ? emarger.heureDepart|date('H:i') : '' }}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

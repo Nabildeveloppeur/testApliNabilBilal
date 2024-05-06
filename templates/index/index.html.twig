@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<style>
+.container {margin-left: 0px;}
+.header-title {margin-right: 100px;}
+</style>
+<div class="index-block">
+    <div class="title-index">
+        BIENVENUE GEFOR
+    </div>    
+    <a href="{{ path('app_login') }}" class="btn btn-success btn-xl">Connexion</a>
+</div>
+{% endblock %}

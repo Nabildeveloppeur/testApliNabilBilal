@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1>Inscription Liste</h1>
+    <div class="row-block">
+        <a class="btn btn-primary" href="{{ path('app_inscription_new') }}">Ajouter Inscription</a>
+    </div>
+    <table class="table basic-table" id="myTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Promotion</th>
+                <th>Eleve</th>
+                <th>Date Entree</th>
+                <th>Date Sortie</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for inscription in inscriptions %}
+            <tr>
+                <td>{{ inscription.id }}</td>
+                <td>{{ inscription.promotion.formation.specialite }}{{ (inscription.promotion.formation.options is not null) ? ' - ' ~ inscription.promotion.formation.options.nomOption : '' }} {{ inscription.promotion.annee }}</td>
+                <td>{{ inscription.eleve.nomNaissance }} {{ inscription.eleve.prenom }}</td>
+                <td>{{ inscription.dateEntree ? inscription.dateEntree|date('Y-m-d') : '' }}</td>
+                <td>{{ inscription.dateSortie ? inscription.dateSortie|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_inscription_edit', {'id': inscription.id}) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        $('#myTable').DataTable( {
+        "language": {
+            "lengthMenu": "_MENU_ elements par page",
+            "info": "page _PAGE_ de _PAGES_",
+            "search": 'recherche',
+            "emptyTable": "Aucune donnée disponible dans le tableau"
+        }
+    } );
+    </script>
+{% endblock %}

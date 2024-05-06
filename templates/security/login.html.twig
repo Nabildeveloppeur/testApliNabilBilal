@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<style>
+.container {margin-left: 0px;}
+.header-title {margin-right: 100px;}
+</style>
+<form method="post">
+    
+
+    <div class="login-box">
+        {% if error %}
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        {% endif %}
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        </div>
+        <input type="hidden" name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}"
+        >
+
+        <button class="btn btn-success" type="submit">
+            Se connecter
+        </button>
+    </div>
+</form>
+{% endblock %}

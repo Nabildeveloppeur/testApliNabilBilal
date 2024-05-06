@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1>Utilisateur</h1>
+
+    <table class="table basic-table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ utilisateur.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ utilisateur.email }}</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>{{ utilisateur.roles[0]|split('_')[1] }}</td>
+            </tr>
+            <tr>
+                <th>Civilite</th>
+                <td>{% if utilisateur.civilite is not null %}{{utilisateur.civilite ? 'Mr' : 'Mme' }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>NomUsuel</th>
+                <td>{{ utilisateur.nomUsuel }}</td>
+            </tr>
+            <tr>
+                <th>NomNaissance</th>
+                <td>{{ utilisateur.nomNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ utilisateur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Numtel</th>
+                <td>{{ utilisateur.numtel }}</td>
+            </tr>
+            <tr>
+                <th>Promotions</th>
+                <td>
+                    {% for insc in utilisateur.inscriptions %}
+                        {% if insc.promotion.formation is not null %}
+                            {{ insc.promotion.formation.specialite }}{{ (insc.promotion.formation.options is not null) ? ' - ' ~ insc.promotion.formation.options.nomOption : '' }}
+                        {% endif %}
+                        {{insc.promotion.annee}}<br>
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row-block">
+        <a class="btn btn-primary" href="{{ path('app_utilisateur_index') }}">Liste</a>
+        <a class="btn btn-primary" href="{{ path('app_utilisateur_edit', {'id': utilisateur.id}) }}">Modifier</a>
+        {{ include('utilisateur/_delete_form.html.twig') }}
+    </div>
+    
+{% endblock %}

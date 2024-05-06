@@ -1,0 +1,215 @@
+body {
+    background-color: #fff;
+    margin: 0;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    background-color: #222222;
+    display: flex;
+}
+
+.logo {
+    max-height: 100px;
+}
+
+i {
+    color: #222222;
+    margin-right: 10px;
+}
+
+.header-title {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    font-size: 32px;
+    color: #fff;
+}
+
+.header-user {
+    width: 200px;
+    align-items: right;
+    margin: auto;
+    font-size: 18px;
+    color: #fff;
+}
+
+.index-block {
+    text-align: center;
+    height: 80vh;
+    padding: 20px;
+}
+
+.row-block {
+    margin: 10px 0px 10px 0px;
+    display: inline-flex;
+}
+
+.btn {
+    margin-right: 15px;
+    padding: 7px 12px;
+    font-size: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.btn-xl {
+    padding: 15px 25px;
+    font-size: 25px;
+    background-color: #4CAF50;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+}
+
+.title-index {
+    font-size: 55px;
+    margin: 30px;
+}
+
+/* nav bar */
+.container-w {
+    display: flex;
+}
+
+.navbar {
+    position: fixed;
+    top: 100px;
+    background-color: #222222;
+    color: white;
+    width: 180px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px 10px;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-links li {
+    margin-bottom: 10px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #ffd700;
+}
+
+.container {
+    flex: 1;
+    padding: 20px;
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    width: 150px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.form-control {
+    width: 100%;
+    max-width: 500px;
+    padding: 5px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group-search {
+    width: 320px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.search-label {
+    width: 70px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.search-input {
+    width: 180px;
+    padding: 5px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-box {
+    margin: auto;
+    width: 400px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+
+.basic-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.basic-table th, .basic-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.basic-table th {
+    background-color: #f2f2f2;
+}
+
+.basic-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}y
+
+.basic-table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+.basic-table th, .basic-table td {
+    text-align: left;
+}
+
+.caption-custom {
+    padding: 7px;
+    background-color: #f2f2f2;
+    font-size: 20px;
+}
